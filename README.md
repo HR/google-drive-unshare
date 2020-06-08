@@ -22,3 +22,5 @@ them.
    (everything after https://drive.google.com/drive/folders/ of the folder URL).
 4. Hit run! (You will probably also be prompted grant permission to your drive
    so do that)
+   ![permissions](.github/permissions.png)
+   ![permissions](.github/permissions_allow.png)

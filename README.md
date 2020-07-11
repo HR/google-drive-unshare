@@ -11,7 +11,9 @@ them.
 - Transfer ownership: copy all files and folders owned by someone while
   unsharing them with that someone becoming the owner of them.
 
-# Installation
+# Installation & Usage
+
+> ⚠️ Leaving both `userEmail` and `folderId` blank will unshare everthing in your Drive with everyone
 
 1. Go to https://script.google.com/start and make sure you're signed in with the
    Google Drive account you want to use for this.

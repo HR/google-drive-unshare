@@ -4,7 +4,9 @@ them.
 
 # Features
 
+- Unshare all files and folders with everyone.
 - Unshare all files and folders with someone.
+- Unshare a folder (incl. subfiles and subfolders) with everyone.
 - Unshare a folder (incl. subfiles and subfolders) with someone.
 - Transfer ownership: copy all files and folders owned by someone while
   unsharing them with that someone becoming the owner of them.

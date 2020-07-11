@@ -4,7 +4,7 @@
  */
 
 // Enter the email of the user to remove
-// Leave empty if you want to remove all sharees
+// Leave empty/undefined if you want to remove all sharees
 var userEmail = 'example@gmail.com'
 // Leave blank if you want to unshare all folders/files
 var folderId
@@ -32,12 +32,12 @@ function unshareItems (folder, email) {
   unshare(folder, email)
   var query = `'${email}' in writers or '${email}' in readers`
   // Unshare all the files in the folder
-  var files = folder.searchFiles(query)
+  var files = email ? folder.searchFiles(query) : folder.getFiles()
   while (files.hasNext()) {
     unshare(files.next(), email)
   }
   // Unshare all the subfolders
-  var folders = folder.searchFolders(query)
+  var folders = email ? folder.searchFolders(query) : folder.getFolders()
   while (folders.hasNext()) {
     unshare(folders.next(), email)
   }
@@ -45,8 +45,18 @@ function unshareItems (folder, email) {
 
 function unshare (item, email) {
   try {
-    item.removeEditor(email)
-    Logger.log('Unshared ' + item.getName())
+    if (email) {
+      // Unshare with email
+      item.removeEditor(email)
+      Logger.log('Unshared ' + item.getName())
+      return
+    }
+    // Unshare with all
+    var sharees = [...item.getEditors(), ...item.getViewers()]
+    sharees.forEach(function (sharee, index) {
+      item.removeEditor(sharee.getEmail())
+      Logger.log(`Unshared ${item.getName()} with ${sharee.getEmail()}`)
+    })
   } catch (e) {
     Logger.log(e)
   }

@@ -18,10 +18,11 @@ them.
 2. Copy & Paste the `Code.gs` in this repository into the default file and
    select the `main` function under "Select function"
 3. In the code, set the `userEmail` variable to the email address of the user
-   you want unshare items with and optionally set `copyNotOwned` variable to
-   `true` if you want to also copy the items. If you want to unshare a specific
-   folder (incl. subfolders and subfiles), set the `folderId` variable
-   (everything after https://drive.google.com/drive/folders/ of the folder URL).
+   you want unshare items with or leave it blank to unshare with everyone and
+   optionally set `copyNotOwned` variable to `true` if you want to also copy the
+   items. If you want to unshare a specific folder (incl. subfolders and
+   subfiles), set the `folderId` variable (everything after
+   https://drive.google.com/drive/folders/ of the folder URL).
 4. Hit run! (You will probably also be prompted grant permission to your drive
    so do that)
 

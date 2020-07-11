@@ -4,6 +4,7 @@
  */
 
 // Enter the email of the user to remove
+// Leave empty if you want to remove all sharees
 var userEmail = 'example@gmail.com'
 // Leave blank if you want to unshare all folders/files
 var folderId
@@ -22,20 +23,21 @@ function main () {
     unshareItems(folder, userEmail)
   }
 
-  if (copyNotOwned) {
+  if (copyNotOwned && userEmail) {
     copyUnownedItems(folder, userEmail)
   }
 }
 
 function unshareItems (folder, email) {
   unshare(folder, email)
+  var query = `'${email}' in writers or '${email}' in readers`
   // Unshare all the files in the folder
-  var files = folder.searchFiles("'" + email + "' in writers")
+  var files = folder.searchFiles(query)
   while (files.hasNext()) {
     unshare(files.next(), email)
   }
   // Unshare all the subfolders
-  var folders = folder.searchFolders("'" + email + "' in writers")
+  var folders = folder.searchFolders(query)
   while (folders.hasNext()) {
     unshare(folders.next(), email)
   }

@@ -58,7 +58,7 @@ function unshare (item, email) {
       Logger.log(`Unshared ${item.getName()} with ${sharee.getEmail()}`)
     })
   } catch (e) {
-    Logger.log(e)
+    Logger.log('Unsharing error: ' + e)
   }
 }
 

@@ -4,7 +4,7 @@
  */
 
 // Enter the email of the user to remove
-// Leave empty/undefined if you want to remove all sharees
+// Leave blank if you want to remove all sharees
 var userEmail = 'example@gmail.com'
 // Leave blank if you want to unshare all folders/files
 var folderId
